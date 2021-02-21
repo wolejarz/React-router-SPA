@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, NavLink, Route } from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 const Home = () => {
@@ -10,6 +10,9 @@ const News = () => {
 };
 const Contact = () => {
   return <h1>Contact</h1>;
+};
+const ErrorPage = () => {
+  return <h1>Page doesn't exist</h1>;
 };
 
 class App extends Component {
@@ -27,14 +30,7 @@ class App extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/news"
-                    activeClassName="newsselected"
-                    activeStyle={{
-                      backgroundColor: "gray",
-                      letterSpacing: "2px",
-                    }}
-                  >
+                  <NavLink to="/news" activeClassName="newsselected">
                     News
                   </NavLink>
                 </li>
@@ -47,9 +43,12 @@ class App extends Component {
             </nav>
           </header>
           <section>
-            <Route path="/contact" component={Contact} />
-            <Route path="/news" component={News} />
-            <Route path="/" exact={true} component={Home} />
+            <Switch>
+              <Route path="/contact" component={Contact} />
+              <Route path="/news" component={News} />
+              <Route path="/" exact={true} component={Home} />
+              <Route component={ErrorPage} />
+            </Switch>
           </section>
         </div>
       </BrowserRouter>
