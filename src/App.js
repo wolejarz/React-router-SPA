@@ -1,6 +1,16 @@
 import React, { Component } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 import "./App.css";
+
+const Home = () => {
+  return <h1>Start Page</h1>;
+};
+const News = () => {
+  return <h1>News</h1>;
+};
+const Contact = () => {
+  return <h1>Contact</h1>;
+};
 
 class App extends Component {
   state = {};
@@ -20,19 +30,14 @@ class App extends Component {
                 <li>
                   <Link to="/contact">Contact</Link>
                 </li>
-
-                {/* <li>
-                  <a href="/">Start</a>
-                </li>
-                <li>
-                  <a href="/news">News</a>
-                </li>
-                <li>
-                  <a href="/contact">Contact</a>
-                </li> */}
               </ul>
             </nav>
           </header>
+          <section>
+            <Route path="/contact" component={Contact} />
+            <Route path="/news" component={News} />
+            <Route path="/" exact={true} component={Home} />
+          </section>
         </div>
       </BrowserRouter>
     );
