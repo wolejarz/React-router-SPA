@@ -30,10 +30,27 @@ a {
 
 a:hover {
   color: yellow;
-  /* border-bottom-color: yellow   ; */
 }
 
 section {
   padding-top: 30px;
   text-align: center;
+}
+
+.homeselected {
+  border-bottom-color: red;
+  background-color: grey;
+  letter-spacing: 6px;
+}
+
+.newsselected {
+  border-bottom-color: green;
+  background-color: grey;
+  letter-spacing: 6px;
+}
+
+.contactselected {
+  border-bottom-color: orange;
+  background-color: grey;
+  letter-spacing: 6px;
 }

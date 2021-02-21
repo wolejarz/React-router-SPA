@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter, NavLink, Route } from "react-router-dom";
 import "./App.css";
 
 const Home = () => {
@@ -22,13 +22,26 @@ class App extends Component {
             <nav>
               <ul>
                 <li>
-                  <Link to="/">Start</Link>
+                  <NavLink to="/" exact activeClassName="homeselected">
+                    Start
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/news">News</Link>
+                  <NavLink
+                    to="/news"
+                    activeClassName="newsselected"
+                    activeStyle={{
+                      backgroundColor: "gray",
+                      letterSpacing: "2px",
+                    }}
+                  >
+                    News
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <NavLink to="/contact" activeClassName="contactselected">
+                    Contact
+                  </NavLink>
                 </li>
               </ul>
             </nav>
